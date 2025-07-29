@@ -40,8 +40,9 @@ export async function POST(request: Request): Promise<Response> {
         }
       );
     }
-    const verifyCode = Math.floor(Math.random() * 9000000 + 100000).toString();
+    const verifyCode = Math.floor(Math.random() * 900000 + 100000).toString();
     const hashedPassword = await bcrypt.hash(password, 10);
+    console.log(verifyCode)
 
     const verifyCodeExpiry = new Date();
     verifyCodeExpiry.setHours(verifyCodeExpiry.getHours() + 1);
